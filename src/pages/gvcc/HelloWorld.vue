@@ -1,7 +1,7 @@
 <template>
   <div class="hello-world-container">
     <div class="logo-coontainer">
-      <img class="logo-image" :src="require('@/assets/logo.jpg')" alt="">
+      <img class="logo-image" :src="require('@/assets/images/logo.jpg')" alt="">
     </div>
     <div class="logo-title">
       <h1>Gvcc-cli</h1>

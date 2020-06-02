@@ -1,7 +1,7 @@
 export default {
   "appName": 'Gvcc-template',
   "leftnavBgcolor": '#032b50',
-  "logoImage": require('../assets/logo.jpg'),
+  "logoImage": require('../assets/images/logo.jpg'),
   "pages": [
     {
       name: 'gvcc',
