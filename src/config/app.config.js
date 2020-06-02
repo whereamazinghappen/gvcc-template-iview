@@ -19,9 +19,5 @@ export default {
       sort: 1,
       icon: 'md-sunny',
     },
-    {
-      name: 'imanage',
-      title: '系统管理',
-    },
   ],
 }
