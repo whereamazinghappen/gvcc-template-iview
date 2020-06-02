@@ -50,6 +50,7 @@ export default {
 
 <style lang="stylus" scoped>
 .hello-world-container
+ overflow-y: auto
  height 100%
  background-color #ffffff
  display flex

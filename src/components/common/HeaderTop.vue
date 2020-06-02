@@ -46,7 +46,7 @@ export default {
     },
     moduleAndPage() {
       return {
-        moduleName: this.getTitleByName(this.$route.meta.moduleName),
+        moduleName: this.getTitleByName(this.$route.meta.moduleName) || this.$route.meta.moduleName,
         pageName: this.getTitleByName(this.$route.name) || this.$route.name,
       };
     },
