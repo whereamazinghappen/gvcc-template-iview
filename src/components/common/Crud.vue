@@ -60,7 +60,7 @@
             <FormItem :style="{width: 'calc(25% - 10px)'}" v-for="(item, index) in showFilterItems" :label="item.filedTitle + ':'" :key="item.filedKey" :prop="item.filedKey">
                 <Input @on-enter="(val)=>filterInputEnter(val, item)" v-model="filterForm[item.filedKey]" v-if="item.formInputType === 'text'" type="text" :placeholder="item.filedTitle"/></Input>
                 <AutoComplete @on-focus="autocompleteFocus" :data="autoCompleteData[item.filedKey]" @keyup.native.enter="(val)=>filterInputEnter(val, item)" @on-select="(val)=>filterInputEnter(val, item)" v-model="filterForm[item.filedKey]" v-if="item.formInputType === 'autocomplete'" :placeholder="item.filedTitle"/></AutoComplete>
-                <Select @on-open-change="selectOpenChange" v-model="filterForm[item.filedKey]" :filterable="true" v-if="item.formInputType === 'select'" :placeholder="item.title">
+                <Select @on-open-change="(val) => selectOpenChange(val, item.filedKey)" v-model="filterForm[item.filedKey]" :filterable="true" v-if="item.formInputType === 'select'" :placeholder="item.title">
                   <Option :key="option.value" v-for="option in options[item.filedKey]" :value="option.value">{{ option.label }}</Option>
                 </Select>
                 <DatePicker v-if="item.formInputType === 'dateRange'" type="daterange" v-model="filterForm[item.filedKey]" :placeholder="item.filedTitle"></DatePicker>
@@ -563,12 +563,13 @@ export default {
     customClick(name) {
       this.$emit(name, this.selectedData, this.tableData);
     },
-    selectOpenChange(isOpen) {
-      isOpen && this.getOptions();
+    selectOpenChange(isOpen, filedKey) {
+      isOpen && this.getOptions(filedKey);
     },
-    getOptions() {
+    getOptions(filedKey) {
       this.remoteOptonsItem.forEach((item) => {
         if (this.options[item.filedKey]) return false;
+        if (item.filedKey !== filedKey) return false;
         if (item.downOptions.indexOf(0) === -1) {
           const myoptions = item.options.filter(opitem => item.downOptions.indexOf(opitem.id) > -1);
           this.$set(this.options, item.filedKey, myoptions);
