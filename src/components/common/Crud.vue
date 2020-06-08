@@ -759,7 +759,7 @@ export default {
           this.$Message.success('新增数据成功！');
           this.retrieve();
         } else {
-          this.$Message.error(res.data.msg || '新增数据失败！');
+          this.$Message.warning(res.data.msg || '新增数据失败！');
         }
       }).catch((e) => {
         this.$Message.error('新增数据失败！');
@@ -777,7 +777,7 @@ export default {
           this.$Message.success('删除数据成功！');
           this.retrieve();
         } else {
-          this.$Message.error(res.data.msg || '删除数据失败！');
+          this.$Message.warning(res.data.msg || '删除数据失败！');
         }
       }).catch(() => {
         this.$Message.error('删除数据失败！');
@@ -798,7 +798,7 @@ export default {
           this.$Message.success('修改数据成功！');
           this.retrieve();
         } else {
-          this.$Message.error(res.data.msg || '修改数据失败！');
+          this.$Message.warning(res.data.msg || '修改数据失败！');
         }
       }).catch((e) => {
         this.$Message.error('修改数据失败！');
@@ -834,7 +834,7 @@ export default {
           };
         } else {
           this.tableData = [];
-          this.$Message.error(res.data.msg || '查询数据失败！');
+          this.$Message.warning(res.data.msg || '查询数据失败！');
         }
       }).catch(() => {
         this.$Message.error('查询数据失败！');
@@ -868,7 +868,7 @@ export default {
           };
         } else {
           this.tableData = [];
-          this.$Message.error('查询数据失败！');
+          this.$Message.warning('查询数据失败！');
         }
       }).catch(() => {
         this.tableData = [];
